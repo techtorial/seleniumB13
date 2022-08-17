@@ -22,5 +22,9 @@ public class BrowserUtils {
                 System.out.println("Method name is not available,Use text,value,or index");
         }
     }
+
+    public static String getText(WebElement element){
+        return element.getText().trim();
+    }
 }
 

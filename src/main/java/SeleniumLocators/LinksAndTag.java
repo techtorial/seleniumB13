@@ -32,6 +32,16 @@ public class LinksAndTag {
         driver.navigate().back();
         WebElement selenium= driver.findElement(By.linkText("Selenium"));
         selenium.click();
+        driver.navigate().back();
+        Thread.sleep(5000);
+        javaLink=driver.findElement(By.linkText("Java"));
+        javaLink.click();
+
+
+
+
+
+
         System.out.println(driver.getTitle());//you can also use tagName for the title
         Thread.sleep(3000);
         driver.navigate().back(); //Main

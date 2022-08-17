@@ -46,7 +46,8 @@ NOTE: Please use browser utils for the select classes if it is needed.
         Select price = new Select(priceBox);
         WebElement firstOptionPrice = price.getFirstSelectedOption();
 
-        String actualMessage = firstOptionPrice.getText().trim();
+        //String actualMessage = firstOptionPrice.getText().trim();
+        String actualMessage=BrowserUtils.getText(firstOptionPrice);
         String expected = "No max price";
         Assert.assertEquals(actualMessage, expected);
 

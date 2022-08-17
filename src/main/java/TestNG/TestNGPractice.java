@@ -135,8 +135,8 @@ public class TestNGPractice {
         }
         System.out.println(actualBrands);
         System.out.println(expectedBrands);
-
     }
+
 
     /*
     HOMEWORK:Validation for the functionality of ProductName Button
@@ -148,4 +148,45 @@ public class TestNGPractice {
        1-Click ProductName
        2-Reverse the list
      */
-}
+
+    @Test
+    public void validateDescendingOrder() throws InterruptedException {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://demo.opencart.com/admin/");
+        WebElement userName = driver.findElement(By.id("input-username"));
+        userName.sendKeys("demo");
+        WebElement password = driver.findElement(By.id("input-password"));
+        password.sendKeys("demo");
+        WebElement login = driver.findElement(By.xpath("//button[@type='submit']"));
+        login.click();
+        Thread.sleep(3000);
+        WebElement closeButton = driver.findElement(By.xpath("//button[@class='btn-close']"));
+        closeButton.click();
+        WebElement catalogOption = driver.findElement(By.xpath("//a[contains(text(),'Catalog')]"));
+        catalogOption.click();
+        Thread.sleep(2000);
+        WebElement productOption = driver.findElement(By.xpath("//a[.='Products']"));
+        productOption.click();
+        Thread.sleep(3000);
+        WebElement productName=driver.findElement(By.xpath("//a[@class='asc']"));
+        productName.click();
+        Thread.sleep(2000);
+        List<WebElement> allBrands=driver.findElements(By.xpath("//tr//td[3]"));//indexing -->suggested for tables
+        List<String> actualBrands=new ArrayList<>();
+        List<String> expectedBrands=new ArrayList<>();
+        //whenever you need to do comparison for 2 list with String value.It goes to ASCII TABLE. It means
+        //I suggest you to use either toLowerCase, or UpperCase at the end of GetText().
+        for(int i=1;i<allBrands.size();i++){
+            actualBrands.add(allBrands.get(i).getText().trim().toLowerCase());
+            expectedBrands.add(allBrands.get(i).getText().trim().toLowerCase());
+            Collections.sort(expectedBrands);
+            Collections.reverse(expectedBrands);
+            Assert.assertEquals(actualBrands,expectedBrands);
+        }
+        System.out.println(actualBrands);
+        System.out.println(expectedBrands);
+    }
+    }
+
