@@ -24,6 +24,7 @@ public class DragAndDrop {
         //The reason i create action class to show you that you can use click method from actions as well
         Actions actions=new Actions(driver);
         actions.click(closeCookies).perform();
+        actions.scrollByAmount(200,200);
         WebElement circle=driver.findElement(By.id("draggable"));
         WebElement orangeBox=driver.findElement(By.xpath("//div[.='... Or here.']"));
         String actualMessage= BrowserUtils.getText(orangeBox);
@@ -34,13 +35,7 @@ public class DragAndDrop {
         String actualAfterDrop=BrowserUtils.getText(orangeBox);
         String expectedAfterDrop="You did great!";
         Assert.assertEquals(actualAfterDrop,expectedAfterDrop);
-
-
-
-
-
-
-
     }
+
 
 }
