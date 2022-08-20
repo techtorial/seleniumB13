@@ -68,7 +68,7 @@ public class HoverOver {
         WebElement acceptCookies = driver.findElement(By.id("onetrust-accept-btn-handler"));
         actions.click(acceptCookies);
         JavascriptExecutor executor = (JavascriptExecutor)driver;
-        executor.executeScript("document.body.style.zoom='zoom %'")
+        executor.executeScript("document.body.style.zoom='zoom %'");
         List<WebElement> allImages = driver.findElements(By.xpath("//div[@class='product k-listview-item']"));
         List<WebElement> allNames = driver.findElements(By.xpath("//div[@class='product-description']//h3"));
         List<WebElement> allPrices = driver.findElements(By.xpath("//div[@class='product-description']//p"));
