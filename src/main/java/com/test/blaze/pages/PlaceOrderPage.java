@@ -40,7 +40,8 @@ public class PlaceOrderPage {
     WebElement okButton;
 
     public void fillAllInformation(String name,String country,String city,String creditCard
-    ,String month,String year){
+    ,String month,String year) throws InterruptedException {
+        Thread.sleep(2000);
         this.name.sendKeys(name);
         this.country.sendKeys(country);
         this.city.sendKeys(city);

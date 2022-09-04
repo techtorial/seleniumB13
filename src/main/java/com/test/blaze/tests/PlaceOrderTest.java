@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -22,13 +23,14 @@ public class PlaceOrderTest extends TestBase {
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 //        driver.get("https://www.demoblaze.com/#");
 //    }
-
+    @Parameters({"brand","name","country","city","creditCard","month","year","message"})
     @Test
-    public void validatePurchaseMessage() throws InterruptedException {
+    public void validatePurchaseMessage(String brand,String name,String country,String city,String creditCard,
+                                        String month,String year,String message) throws InterruptedException {
         MainPage mainPage=new MainPage(driver);
         mainPage.clickLaptops();
         LeptopPage leptopPage=new LeptopPage(driver);
-        leptopPage.chooseLaptop(driver,"MacBook Pro");
+        leptopPage.chooseLaptop(driver,brand);
         MacBookProPage macBookProPage=new MacBookProPage(driver);
         macBookProPage.addToCartclick();
         macBookProPage.validateMessage(driver);
@@ -36,9 +38,9 @@ public class PlaceOrderTest extends TestBase {
         macBookProPage.clickCartButton();
         cartPage.clickPlaceOrderButton();
         PlaceOrderPage placeOrderPage=new PlaceOrderPage(driver);
-        placeOrderPage.fillAllInformation("Mustafa","Syria","Ankara",
-                "123 123 123","05","2023");
-        Assert.assertEquals(placeOrderPage.finalMessage(),"Thank you for your purchase!");
+        placeOrderPage.fillAllInformation(name,country,city,
+                creditCard,month,year);
+        Assert.assertEquals(placeOrderPage.finalMessage(),message);
         placeOrderPage.clickOkButton();
     }
 //    @AfterMethod
