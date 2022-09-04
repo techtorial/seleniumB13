@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.BrowserUtils;
+import utils.DriverHelper;
 
 import java.time.Duration;
 
@@ -21,10 +22,11 @@ public class JavaScriptMethods {
     //GET TITLE METHOD FROM JS
     @Test
     public void GetTitle(){
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
+//        WebDriverManager.chromedriver().setup();
+//        WebDriver driver=new ChromeDriver();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        driver.manage().window().maximize();
+        WebDriver driver= DriverHelper.getDriver();
         driver.get("https://www.techtorialacademy.com/");
         System.out.println("GetTitle with Driver "+driver.getTitle());
         //we are saying to our driver, works as a js executor.
@@ -35,10 +37,11 @@ public class JavaScriptMethods {
 
     @Test
     public void clickJS(){
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
+//        WebDriverManager.chromedriver().setup();
+//        WebDriver driver=new ChromeDriver();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        driver.manage().window().maximize();
+        WebDriver driver= DriverHelper.getDriver();
         driver.get("https://www.techtorialacademy.com/");
         WebElement studentLogin=driver.findElement(By.xpath("//div[@class='navigation hidden-xs']//a[.='Student login']"));
         JavascriptExecutor js= (JavascriptExecutor) driver;
@@ -47,10 +50,11 @@ public class JavaScriptMethods {
 
     @Test//This IS THE MOST COMMON INTERVIEW TECHNICAL AND VERBAL QUESTION.*******
     public void scrollIntoView(){
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
+//        WebDriverManager.chromedriver().setup();
+//        WebDriver driver=new ChromeDriver();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        driver.manage().window().maximize();
+        WebDriver driver= DriverHelper.getDriver();
         driver.get("https://www.techtorialacademy.com/");
         WebElement copyRight=driver.findElement(By.xpath("//p[.='© Copyrights 2022 Techtorial - All Rights Reserved']"));
         JavascriptExecutor js= (JavascriptExecutor) driver;
@@ -65,10 +69,11 @@ public class JavaScriptMethods {
            */
     @Test
     public void scrollIntoViewTask(){
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
+//        WebDriverManager.chromedriver().setup();
+//        WebDriver driver=new ChromeDriver();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        driver.manage().window().maximize();
+        WebDriver driver= DriverHelper.getDriver();
         driver.get("https://www.techtorialacademy.com/");
         WebElement browserCourse=driver.findElement(By.linkText("Browse Course"));
         JavascriptExecutor js= (JavascriptExecutor) driver;
@@ -81,10 +86,11 @@ public class JavaScriptMethods {
     }
     @Test
     public void JSShortCut() throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
+//        WebDriverManager.chromedriver().setup();
+//        WebDriver driver=new ChromeDriver();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        driver.manage().window().maximize();
+        WebDriver driver= DriverHelper.getDriver();
         driver.get("https://www.techtorialacademy.com/");
         WebElement browserCourse=driver.findElement(By.linkText("Browse Course"));
         BrowserUtils.scrollWithJS(driver,browserCourse);
@@ -100,10 +106,11 @@ public class JavaScriptMethods {
 
     @Test
     public void Practice() throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
+//        WebDriverManager.chromedriver().setup();
+//        WebDriver driver=new ChromeDriver();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        driver.manage().window().maximize();
+        WebDriver driver= DriverHelper.getDriver();
         driver.get("https://www.techtorialacademy.com/");
         WebElement browserCourse=driver.findElement(By.linkText("Browse Course"));
         BrowserUtils.scrollWithJS(driver,browserCourse);

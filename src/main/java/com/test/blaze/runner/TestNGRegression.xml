@@ -13,16 +13,16 @@
 
   </test>
 
-    <test name="Sentrifugo Test">
+<!--    <test name="Sentrifugo Test">-->
 
-    <classes>
+<!--    <classes>-->
 
-        <class name="com.test.sentrifugo.tests.LoginTest"> </class>
-        <class name="com.test.sentrifugo.tests.DepartmentTest"> </class>
-        <class name="com.test.sentrifugo.tests.BackGroundCheckTest"> </class>
+<!--        <class name="com.test.sentrifugo.tests.LoginTest"> </class>-->
+<!--        <class name="com.test.sentrifugo.tests.DepartmentTest"> </class>-->
+<!--        <class name="com.test.sentrifugo.tests.BackGroundCheckTest"> </class>-->
 
-    </classes>
+<!--    </classes>-->
 
-    </test>
+<!--    </test>-->
 
 </suite>

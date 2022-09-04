@@ -3,8 +3,12 @@ package com.test.blaze.tests;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import utils.BrowserUtils;
+import utils.ConfigReader;
+import utils.DriverHelper;
 
 import java.time.Duration;
 
@@ -14,15 +18,17 @@ public class TestBase {
 
     @BeforeMethod
     public void setup(){
-        WebDriverManager.chromedriver().setup();
-        driver=new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get("https://www.demoblaze.com/#");
+        driver= DriverHelper.getDriver();
+        driver.get(ConfigReader.readProperty("blazeurl"));
     }
 
     @AfterMethod
-    public void tearDown(){
-        driver.quit();
+    public void tearDown(ITestResult result){
+
+        if(!result.isSuccess()){
+            BrowserUtils.getScreenShot(driver,"BlazeScreenShot");
+        }
+
+     //   driver.quit();
     }
 }
