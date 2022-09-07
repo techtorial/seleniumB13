@@ -43,6 +43,27 @@ public class PlaceOrderTest extends TestBase {
         Assert.assertEquals(placeOrderPage.finalMessage(),message);
         placeOrderPage.clickOkButton();
     }
+
+
+    @Test(dataProvider = "validationCustomer",dataProviderClass = CustomerDataProvider.class)
+    public void validatePurchaseMessageWithDataProvider(String brand,String name,String country,String city,String creditCard,
+                                        String month,String year,String message) throws InterruptedException {
+        MainPage mainPage=new MainPage(driver);
+        mainPage.clickLaptops();
+        LeptopPage leptopPage=new LeptopPage(driver);
+        leptopPage.chooseLaptop(driver,brand);
+        MacBookProPage macBookProPage=new MacBookProPage(driver);
+        macBookProPage.addToCartclick();
+        macBookProPage.validateMessage(driver);
+        CartPage cartPage=new CartPage(driver);
+        macBookProPage.clickCartButton();
+        cartPage.clickPlaceOrderButton();
+        PlaceOrderPage placeOrderPage=new PlaceOrderPage(driver);
+        placeOrderPage.fillAllInformation(name,country,city,
+                creditCard,month,year);
+        Assert.assertEquals(placeOrderPage.finalMessage(),message);
+        placeOrderPage.clickOkButton();
+    }
 //    @AfterMethod
 //    public void tearDown(){
 //        driver.quit();
