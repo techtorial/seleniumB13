@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Blaze Customer Information">
+
+    <test name="Order Test">
+        <parameter name="brand" value="MacBook Pro"> </parameter>
+        <parameter name="name" value="Mustafa"> </parameter>
+        <parameter name="country" value="Syria"> </parameter>
+        <parameter name="city" value="Ankara"> </parameter>
+        <parameter name="creditCard" value="123 132 323 23"> </parameter>
+        <parameter name="month" value="08"> </parameter>
+        <parameter name="year" value="2025"> </parameter>
+        <parameter name="message" value="Thank you for your purchase!"> </parameter>
+        <classes>
+
+            <class name="com.test.blaze.tests.PlaceOrderTest"> </class>
+
+        </classes>
+
+    </test>
+
+</suite>

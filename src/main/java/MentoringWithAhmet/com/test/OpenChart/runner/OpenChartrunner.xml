@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression Suite">
+
+    <test name="OpenChart Test">
+
+        <parameter name="lastName" value="Ahmet"> </parameter>
+        <parameter name="firstName" value="Mustafa"> </parameter>
+
+        <classes>
+
+            <class name="MentoringWithAhmet.com.test.OpenChart.tests.MainTest"> </class>
+            <class name="MentoringWithAhmet.com.test.OpenChart.tests.CustomerTest"> </class>
+
+        </classes>
+
+    </test>
+
+</suite>
